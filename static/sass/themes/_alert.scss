@@ -1,0 +1,43 @@
+.flashes li {
+  color: var(--brown-light);
+  background-color: var(--off-white);
+  border: 0;
+  list-style: none;
+  font-weight: 800;
+  display: inline-block;
+  height: 4rem;
+  border-radius: 9px;
+  padding: 0.8rem 1.6rem;
+}
+
+.alert {
+  margin: 0.8rem auto;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+}
+#hideMe {
+  -moz-animation: cssAnimation 0s ease-in 2s forwards;
+  /* Firefox */
+  -webkit-animation: cssAnimation 0s ease-in 2s forwards;
+  /* Safari and Chrome */
+  -o-animation: cssAnimation 0s ease-in 2s forwards;
+  /* Opera */
+  animation: cssAnimation 0s ease-in 2s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}

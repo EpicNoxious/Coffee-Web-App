@@ -1,0 +1,113 @@
+.section-testimonials {
+  color: var(--off-white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 8rem 3.2rem 3.2rem 3.2rem;
+
+  &__title {
+    text-align: center;
+    grid-column: 1 / -1;
+    margin-bottom: 4.8rem;
+
+    &--heading {
+      font-size: 6.4rem;
+      font-weight: 700;
+      text-transform: capitalize;
+      letter-spacing: 0.5px;
+      font-family: "Lobster Two";
+    }
+
+    &--subheading {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--grey-2);
+      letter-spacing: 1px;
+    }
+  }
+
+  &__container {
+    grid-column: 1 / 2;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @include respond(md-tab) {
+    grid-template-columns: 1fr;
+  }
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+
+  @include respond(sm-desktop) {
+    column-gap: 3.6rem;
+  }
+  @include respond(md-tab) {
+    column-gap: 2.4rem;
+  }
+  &__fig {
+    padding: 2.4rem;
+    @include respond(sm-desktop) {
+      padding: 3.6rem;
+    }
+    @include respond(md-tab) {
+      padding: 2.4rem;
+    }
+    &--img {
+      width: 6.4rem;
+      border-radius: 50%;
+    }
+    &--text {
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0.8px;
+      margin-bottom: 1.2rem;
+    }
+    &--name {
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-family: "Lobster Two";
+      color: var(--grey-3);
+      letter-spacing: 1.5px;
+    }
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @include respond(sm-desktop) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond(sm-tab) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  gap: 1.6rem;
+  padding: 1.6rem;
+  &__item {
+    overflow: hidden;
+
+    @include respond(sm-desktop) {
+      &:last-child {
+        display: none;
+        visibility: hidden;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      transition: transform 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+.footer {
+  color: var(--off-white);
+  overflow: hidden;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  & > * {
+    position: relative;
+    z-index: 3;
+  }
+
+  &::before {
+    content: "";
+    background-image: linear-gradient(
+        90deg,
+        rgba($black, 0.65),
+        rgba($black, 0.65)
+      ),
+      url(/static/img/footer-wallpaper.jpg);
+
+    background-size: 100%;
+    background-position: center;
+    background-repeat: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__connect {
+    flex: 0 0 33%;
+    padding: 2.4rem;
+    &--logo {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--off-white);
+      margin-bottom: 3.2rem;
+    }
+
+    &--text {
+      hyphens: auto;
+      max-width: 30rem;
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0.8px;
+    }
+
+    &--copyright {
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0.8px;
+    }
+  }
+  &__contact {
+    flex: 0 0 33%;
+    padding: 2.4rem;
+
+    & > * {
+      span {
+        font-size: 2.4rem;
+        color: var(--brown-light);
+        stroke: var(--brown-light);
+        overflow: hidden;
+      }
+    }
+
+    & > * {
+      hyphens: auto;
+
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0.8px;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.4rem;
+    }
+
+    &--heading {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--off-white);
+      margin-bottom: 3.2rem;
+      text-transform: capitalize;
+    }
+  }
+  &__link {
+    flex: 0 0 33%;
+    padding: 2.4rem;
+
+    &-list {
+      display: grid;
+      grid-template-columns: 0.4fr 0.4fr;
+      row-gap: 0.8rem;
+      &--items {
+        hyphens: auto;
+
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: 0.8px;
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1.4rem;
+      }
+    }
+
+    &--heading {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--off-white);
+      margin-bottom: 3.2rem;
+      text-transform: capitalize;
+
+      &__icon {
+        height: 2.4rem;
+        width: 2.4rem;
+        fill: var(--brown-light);
+      }
+    }
+  }
+}

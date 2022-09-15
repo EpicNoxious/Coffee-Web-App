@@ -1,0 +1,221 @@
+.section-products {
+  padding: 8rem 3.2rem 3.2rem 3.2rem;
+  height: auto;
+  &-grid {
+    display: grid;
+    margin: 0 6.4rem;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 4.8rem;
+
+    @include respond(big-tab) {
+      column-gap: 0;
+      row-gap: 4.8rem;
+    }
+
+    @include respond(sm-tab) {
+      column-gap: 0;
+      row-gap: 4.8rem;
+    }
+
+    & > * {
+      margin: 0 auto;
+    }
+
+    @include respond(big-tab) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin: 0 auto;
+    margin-bottom: 4.8rem;
+    text-align: center;
+    &--heading {
+      font-size: 6.4rem;
+      font-weight: 700;
+      text-transform: capitalize;
+      letter-spacing: 0.5px;
+      color: var(--off-white);
+      font-family: "Lobster Two";
+    }
+    &--subheading {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--grey-2);
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 35rem;
+  max-width: 25rem;
+  border-radius: 3.5rem;
+  overflow: hidden;
+  position: relative;
+
+  @include respond(big-desktop) {
+    max-width: 35rem;
+    height: 45rem;
+  }
+
+  @include respond(big-tab) {
+    height: 35rem;
+  }
+
+  @include respond(md-tab) {
+    height: 30rem;
+  }
+
+  &--1 {
+    background-color: #cfecf7;
+    background-image: url(/static/img/Group5.png);
+    background-size: cover;
+  }
+  &--2 {
+    background-color: #e1c9e1;
+    background-image: url(/static/img/Group6.png);
+    background-size: cover;
+  }
+  &--3 {
+    background-color: #ecc1bc;
+    background-image: url(/static/img/Group7.png);
+    background-size: cover;
+  }
+  &--4 {
+    background-color: #f9dde0;
+    background-image: url(/static/img/Group8.png);
+    background-size: cover;
+  }
+  &__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-radius: 3.5rem;
+    background-color: var(--off-white);
+    transform: translateY(100%);
+    transition: 0.2s ease-in-out;
+  }
+
+  &__image {
+    width: 70%;
+    height: auto;
+    margin-top: 3.2rem;
+    // box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.3);
+    transition: 0.2s ease-in-out;
+
+    @include respond(big-desktop) {
+      width: 80%;
+    }
+    @include respond(sm-desktop) {
+      width: 85%;
+    }
+    @include respond(big-tab) {
+      width: 75%;
+    }
+    @include respond(sm-tab) {
+      width: 80%;
+    }
+  }
+
+  &__header {
+    position: relative;
+
+    padding: 1.6rem;
+    border-radius: 3.3rem 0 0 0;
+    background-color: var(--off-white);
+    transform: translateY(-100%);
+    transition: 0.2s ease-in-out;
+  }
+
+  &:hover &__overlay {
+    transform: translateY(0);
+  }
+
+  &:hover &__header {
+    transform: translateY(0);
+  }
+
+  &:hover &__image {
+    transform: scale(0.9);
+  }
+
+  &__arc {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    z-index: 1;
+
+    path {
+      fill: var(--off-white);
+      d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+    }
+  }
+
+  &__header-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &__title {
+    font-size: 2.8rem;
+    font-family: "Lobster Two";
+    &--1 {
+      color: #82c3e6;
+    }
+    &--2 {
+      color: #a86ea9;
+    }
+    &--3 {
+      color: #b8524d;
+    }
+    &--4 {
+      color: #ef9ca7;
+    }
+  }
+
+  &__status {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--off-black-3);
+  }
+
+  &__description {
+    margin: 0 2.4rem 2.4rem 2.4rem;
+    font-size: 1.4rem;
+    color: var(--off-black-3);
+    font-family: "Quicksand";
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+
+  &__invite {
+    grid-column: 1 / -1;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--grey-2);
+    letter-spacing: 1px;
+    text-align: center;
+
+    span {
+      color: var(--off-white);
+      transition: color 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--brown-light);
+      }
+    }
+  }
+}

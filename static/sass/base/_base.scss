@@ -1,0 +1,73 @@
+:root {
+  --white: #fff;
+  --off-white: #f7f7f5;
+  --black: #000;
+  --off-black-1: #0f0f0f;
+  --off-black-2: #0a0a0a;
+
+  --off-black-3: #101010;
+  --off-black-4: #191919;
+
+  --brown-light: #b99158;
+  --grey-1: #555;
+  --grey-2: #999;
+  --grey-3: #bbb;
+}
+$black: #000;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* Good practice to keep box-sizing inherit */
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 10/16
+  // scroll-behavior: smooth;
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 12/16
+  }
+
+  @include respond(md-tab) {
+    font-size: 56.25%; // 9/16
+  }
+
+  @include respond(sm-tab) {
+    font-size: 50%; // 8/16
+  }
+}
+
+body {
+  box-sizing: border-box;
+  background-color: var(--black);
+  position: relative;
+}
+
+.container {
+  padding: 3.2rem auto 0 auto;
+  background: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(25, 25, 25) 0%,
+    rgb(15, 15, 15) 99.4%
+  );
+}
+
+#scrollbar {
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--brown-light);
+    border-radius: 100px;
+  }
+}

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/style.css') }}"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Quicksand:wght@100;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <title>Website</title>
+  </head>
+  <body id="scrollbar">
+    <main class="container">
+      <!-- Header -->
+      <header class="header">
+        <a href="#" class="header__logo">Caffeine 101</a>
+        <nav class="header__nav">
+          <ul class="header__nav__list">
+            <li>
+              <a class="header__nav__list--link" href="{{ url_for('index') }}"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                class="header__nav__list--link"
+                href="{{ url_for('sign_up_in') }}"
+                >Register</a
+              >
+            </li>
+            <li>
+              <a class="header__nav__list--link" href="{{ url_for('menu') }}"
+                >Menu</a
+              >
+            </li>
+            <li>
+              <a class="header__nav__list--link" href="{{ url_for('about') }}"
+                >About</a
+              >
+            </li>
+            <li>
+              <button class="user">
+                <ion-icon name="person-circle" class="user__logo"> </ion-icon>
+              </button>
+              <ul class="user__drop-down">
+                <li>
+                  <a
+                    class="header__nav__list--link drop-down-link"
+                    href="{{ url_for('cart') }}"
+                    >Cart</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    class="header__nav__list--link drop-down-link"
+                    href="{{ url_for('signout') }}"
+                    >Signout</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero__content">
+          <div>
+            <h1 class="hero__content--heading">&ndash;Brew Nation</h1>
+          </div>
+          <h2 class="hero__content--sub-heading">
+            The perfect headstart for your day
+          </h2>
+          <div class="hero__content--text">
+            <button class="hero__content--text__button button-click">
+              Recipes
+            </button>
+            <p class="hero__content--text__para">
+              Click the button for detailed informtion
+            </p>
+          </div>
+          <p class="hero__note">
+            Coffee made from hand picked coffee beaans whic have been brewed
+            over hours, not minutes. Caffeine 101 offers a smoother and premium
+            taste than traditional coffees for your ultimate wholesome
+            experience. We invite you to become a reputed member of our coffee
+            culture!
+          </p>
+        </div>
+
+        <div class="hero__photo">
+          <picture>
+            <img
+              src="../static/img/Black Cup 1.png"
+              class="hero__photo-cup"
+              id="hero__photo-cup"
+              alt="photo of a flipped paper cup"
+            />
+            <script type="text/javascript">
+              let image = document.getElementById("hero__photo-cup");
+              let images = [
+                "../static/img/Black Cup.png",
+                "../static/img/Black Cup 1.png",
+                "../static/img/Black Cup 2.png",
+              ];
+
+              setInterval(function () {
+                let random = Math.floor(Math.random() * 3);
+                image.src = images[random];
+              }, 800);
+            </script>
+          </picture>
+        </div>
+      </section>
+
+      <!-- Section How-->
+      <section class="section-how">
+        <div class="section-how__heading">
+          <div class="section-how__heading--main">How its made</div>
+          <div
+            class="section-how__heading--sub"
+            data-aos="fade-right"
+            data-aos-duration="800"
+            data-aos-easing="ease-in-out-sine"
+          >
+            every coffee bean is selected by our best coffee beans selectors
+          </div>
+        </div>
+        <div class="section-how__image">
+          <img
+            src="../static/img/Coffee-Bag.png "
+            class="section-how__image--cold_brew_bottle"
+            alt="Concentrated coffee in a bottle with cold brew branding"
+          />
+        </div>
+        <div class="section-how__content">
+          <div class="section-how__content--heading">
+            Every big product has its own secret
+          </div>
+          <div class="section-how__content--text">
+            Since 1984 Caffeine 101 is keeping his special recipe in a secret
+            place where no one can find it. it has been passed down through
+            generations and generations till now.<br />Someone guessed its the
+            ay the coffee beans are grown, someothers are sure is a special
+            ingredient added during the brewing. Well never know but . . .
+
+            <button href="#readmore" class="section-button">Read more</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- <div id="readmore" class="read">
+        <div class="read-box">
+          <div class="box-content" id="scrollbar">
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque,
+              inventore. Rerum eligendi, porro recusandae quidem deserunt et
+              totam, ullam fuga omnis i iprum eligendi, porro recusandae quidem
+              deserunt et totam, ullam fuga omnis iure rem, repudiandae
+              asperiores volupdiandae asperiores voluptatibus corrupti autem
+              earum nisi! Lorem, ipsum dolibus corrupti autem earum nisi! Lorem,
+              ipsum dolor sit amet
+              <br /><br />consectetur adipisicing elit. Atque, inventore. Rerum
+              eligendi, porro recusandae quidem deset. Atque, inventore. Rerum
+              eligendi, porro recusandae quidem deserunt et totam, ullam fugae
+              rem, repudiandae asperiores voluptatibus corrupti autem earum
+              nisi! Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Atque, inventore. Rerum el<br /><br />igendi, porro recusandae
+              quidem deserunt et totam, ullam fuga omnis iure rem, repudiandae
+              aspm, repudiannda recusandae quidem deset. Atque, inventore. Rerum
+              eligendi, porro recusandae quidem deserunt et totam, ullam fugae
+              rem, repudiandae asperiores voluptatibus corrupti autem earum
+              nisi! Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Atque, inventore. Rerum el<br /><br />igendi, porro recusandae
+              quidem deserunt et totam, ullam fuga omnis iure rem, repudiandae
+              asperiores voluptatibus corrupti auteomnis iure isi! Lorem, ipsum
+              dolor sit amet consectetur adipisicing elit. Atque asperiores
+              voluptatibus corrupti autem earum nisi!
+            </p>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Section history -->
+      <div class="section-history-testimonial-background">
+        <section class="section__history">
+          <div class="section__history-main">
+            <div class="section__history-main__heading">
+              Story of a coffee bean
+            </div>
+            <div
+              class="section__history-main__sub-heading"
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-easing="ease-in-out-sine"
+            >
+              Ofcourse you can peep into our story, look how we brewed our
+              coffee
+            </div>
+          </div>
+
+          <div class="section__history--content">
+            <div class="section__history--content__breif">1984</div>
+            <div class="section__history--content__heading">
+              Birth of brand new taste
+            </div>
+            <div class="section__history--content__text">
+              1984, 16th of April is the day of the birth of Caffeine 101, a new
+              brand ready to spread his essence.
+            </div>
+            <span class="section__history--content__arrow">&darr;</span>
+
+            <div class="section__history--content__breif">1999</div>
+            <div class="section__history--content__heading">
+              New beans in our team
+            </div>
+            <div class="section__history--content__text">
+              In this year, Caffeine 101 release new different kind of beans:
+              Arabica, Robusta, Excelsa, and Liberica.
+            </div>
+            <span class="section__history--content__arrow">&darr;</span>
+
+            <div class="section__history--content__breif">2019</div>
+            <div class="section__history--content__heading">
+              Logo and Networking
+            </div>
+            <div class="section__history--content__text">
+              To match the modern day competition, Caffeine 101 took a complete
+              face change in 2019 to make it more Hipster.
+            </div>
+          </div>
+
+          <div class="section__history--image">
+            <div class="section__history--image-content">
+              <span class="section__history--image-content--text">
+                Although making coffee is straight-forward yet it has unseen
+                complex layers and our job is to mix our expertise with your
+                coffee and bring you, your headstart for the day.
+              </span>
+            </div>
+            <img
+              src="../static/img/Coffee-beans_1-removebg-preview.png"
+              class="section__history--image-coffeebean"
+              id="section__history--image-coffeebean"
+              alt="photo of a flipped paper cup"
+            />
+            <script type="text/javascript">
+              let image2 = document.getElementById(
+                "section__history--image-coffeebean"
+              );
+              let images2 = [
+                "../static/img/Coffee-beans_1-removebg-preview.png",
+                "../static/img/Coffee-beans_2-removebg-preview.png",
+                "../static/img/Coffee-beans_3-removebg-preview.png",
+                "../static/img/Coffee-beans_4-removebg-preview.png",
+                "../static/img/Coffee-beans_5-removebg-preview.png",
+              ];
+
+              setInterval(function () {
+                let random = Math.floor(Math.random() * 5);
+                image2.src = images2[random];
+              }, 600);
+            </script>
+          </div>
+        </section>
+
+        <!-- Section Testimonials -->
+        <section class="section-testimonials" id="testimonials">
+          <div class="section-testimonials__title">
+            <span class="section-testimonials__title--heading"
+              >What people think</span
+            >
+            <h2 class="section-testimonials__title--subheading">
+              Once you try it, you cant go back, and that is for sure!
+            </h2>
+          </div>
+
+          <div class="section-testimonials__container">
+            <div class="testimonials">
+              <figure class="testimonials__fig">
+                <img
+                  class="testimonials__fig--img"
+                  alt="Photo of customer Dave Bryson"
+                  src="../static/img/customer-1.jpg"
+                />
+                <blockquote class="testimonials__fig--text">
+                  Inexpensive, healthy and great-tasting meals, without even
+                  having to order manually! It feels truly magical.
+                </blockquote>
+                <p class="testimonials__fig--name">&mdash; Dave Bryson</p>
+              </figure>
+
+              <figure class="testimonials__fig">
+                <img
+                  class="testimonials__fig--img"
+                  alt="Photo of customer Ben Hadley"
+                  src="../static/img/customer-2.jpg"
+                />
+                <blockquote class="testimonials__fig--text">
+                  The AI algorithm is crazy good, it chooses the right meals for
+                  me every time. Its amazing not to worry about food anymore!
+                </blockquote>
+                <p class="testimonials__fig--name">&mdash; Ben Hadley</p>
+              </figure>
+
+              <figure class="testimonials__fig">
+                <img
+                  class="testimonials__fig--img"
+                  alt="Photo of customer Steve Miller"
+                  src="../static/img/customer-3.jpg"
+                />
+                <blockquote class="testimonials__fig--text">
+                  Omnifood is a life saver! I just started a company, so theres
+                  no time for cooking. I couldnt live without my daily meals
+                  now!
+                </blockquote>
+                <p class="testimonials__fig--name">&mdash; Steve Miller</p>
+              </figure>
+
+              <figure class="testimonials__fig">
+                <img
+                  class="testimonials__fig--img"
+                  alt="Photo of customer Hannah Smith"
+                  src="../static/img/customer-4.jpg"
+                />
+                <blockquote class="testimonials__fig--text">
+                  I got Omnifood for the whole family, and it frees up so much
+                  time! Plus, everything is organic and vegan and without
+                  plastic.
+                </blockquote>
+                <p class="testimonials__fig--name">&mdash; Hannah Smith</p>
+              </figure>
+            </div>
+          </div>
+
+          <div class="gallery">
+            <figure class="gallery__item">
+              <img
+                src="../static/img/gallery (1).jpg"
+                alt="Photo of beautifully
+              arranged food"
+              />
+              <!-- <figcaption>Caption</figcaption> -->
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="../static/img/gallery (2).jpg"
+                alt="Photo of beautifully
+              arranged food"
+              />
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="../static/img/gallery (3).jpg"
+                alt="Photo of beautifully
+              arranged food"
+              />
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="../static/img/gallery (4).jpg"
+                alt="Photo of beautifully
+              arranged food"
+              />
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="../static/img/gallery (5).jpg"
+                alt="Photo of beautifully
+              arranged food"
+              />
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="../static/img/gallery (6).jpg"
+                alt="Photo of beautifully
+              arranged food"
+              />
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="../static/img/gallery (7).jpg"
+                alt="Photo of beautifully
+              arranged food"
+              />
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="../static/img/gallery (8).jpg"
+                alt="Photo of beautifully
+              arranged food"
+              />
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="../static/img/gallery (9).jpg"
+                alt="Photo of beautifully
+              arranged food"
+              />
+            </figure>
+          </div>
+        </section>
+
+        <!-- Section Products -->
+        <section class="section-products">
+          <div class="section-products__title">
+            <span class="section-products__title--heading"
+              >choose your own cup</span
+            >
+            <h2 class="section-products__title--subheading">
+              Try our best beverages, served at our best price
+            </h2>
+          </div>
+          <div class="section-products-grid">
+            <div href="" class="card card--1">
+              <img
+                src="../static/img/Cup-image-card 1.png"
+                class="card__image"
+                alt=""
+              />
+              <div class="card__overlay">
+                <div class="card__header">
+                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                    <path />
+                  </svg>
+
+                  <div class="card__header-text">
+                    <h3 class="card__title card__title--1">Espresso</h3>
+                    <span class="card__status">$ 3.75</span>
+                  </div>
+                </div>
+                <p class="card__description">
+                  Concentrated form of coffee served in small, strong shots. Its
+                  stronger and thicker than coffee, and higher in caffeine.
+                  However, it has less caffeine per serving.
+                </p>
+              </div>
+            </div>
+            <div href="" class="card card--2">
+              <img
+                src="../static/img/Cup-image-card 2.png"
+                class="card__image"
+                alt=""
+              />
+              <div class="card__overlay">
+                <div class="card__header">
+                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                    <path />
+                  </svg>
+
+                  <div class="card__header-text">
+                    <h3 class="card__title card__title--2">Cappuccino</h3>
+                    <span class="card__status">$ 4.25</span>
+                  </div>
+                </div>
+                <p class="card__description">
+                  Feeling low? Try Cappuccino, strong does of caffeine with
+                  equal proportions of coffee and steamed milk and milk foam on
+                  top. Surely, will wake you up.
+                </p>
+              </div>
+            </div>
+            <div href="" class="card card--3">
+              <img
+                src="../static/img/Cup-image-card 3.png"
+                class="card__image"
+                alt=""
+              />
+              <div class="card__overlay">
+                <div class="card__header">
+                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                    <path />
+                  </svg>
+
+                  <div class="card__header-text">
+                    <h3 class="card__title card__title--3">Mocha</h3>
+                    <span class="card__status">$ 4.85</span>
+                  </div>
+                </div>
+                <p class="card__description">
+                  Concentrated coffee with creamy steamed milk. Its mixed with
+                  chocolate syrup to enhance the richness. Served with milk foam
+                  on top. A perfect dose of caffeine to lighten your mood.
+                </p>
+              </div>
+            </div>
+            <div href="" class="card card--4">
+              <img
+                src="../static/img/Cup-image-card 4.png"
+                class="card__image"
+                alt=""
+              />
+              <div class="card__overlay">
+                <div class="card__header">
+                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                    <path />
+                  </svg>
+
+                  <div class="card__header-text">
+                    <h3 class="card__title card__title--4">Cold Brew</h3>
+                    <span class="card__status">$ 3.95</span>
+                  </div>
+                </div>
+                <p class="card__description">
+                  Coarse ground coffee beans which have been brewed in cold
+                  water instead of hot. Served with steamed milk, chocolate
+                  syrup and milk foam. Can be served cold or hot.
+                </p>
+              </div>
+            </div>
+            <div class="card__invite">
+              We invite you to taste the most divine drink you have ever seen.
+              Check our whole <span>Menu</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section CTA -->
+        <section class="cta">
+          <div class="line">&nbsp;</div>
+          <div class="cta-box">
+            <h2 class="cta-box--heading">Interested in knowing more ?</h2>
+            <p class="cta-box--subheading">
+              For more details and insight, get our brochure.
+            </p>
+
+            <div class="cta-box__form">
+              <form class="form" name="sign-up">
+                <input
+                  class="form--input"
+                  id="email"
+                  type="email"
+                  placeholder="your-name@email.com"
+                  name="email"
+                  required
+                />
+                <button class="form__button">Get free drink</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- Footer -->
+
+    <footer class="footer">
+      <div class="footer__connect">
+        <div class="footer__connect--logo">Caffeine 101</div>
+
+        <div class="footer__connect--text">
+          Caffeine 101 is a new company always seeking out there for new and
+          innovative ideas to serve you best with our products. Our motive is to
+          offer you best service, and ease out your workday life.
+        </div>
+
+        <div class="footer__connect--copyright">&copy; Copyright Inc.</div>
+      </div>
+
+      <div class="footer__contact">
+        <div class="footer__contact--heading">contact us</div>
+        <div class="footer__contact--address">
+          <span><ion-icon name="location-sharp"></ion-icon></span>
+          18/9B Tilak Nagar, New Delhi-110018
+        </div>
+
+        <div class="footer__contact--number">
+          <span><ion-icon name="call"></ion-icon></span>
+          +91 9999 040232
+        </div>
+
+        <div class="footer__contact--email">
+          <span><ion-icon name="mail"></ion-icon></span>
+          jappreet16042002@gmail.com
+        </div>
+      </div>
+
+      <div class="footer__link">
+        <div class="footer__link--heading">Connect here</div>
+
+        <ul class="footer__link-list">
+          <li class="footer__link-list--items">
+            <a href="#"
+              ><svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                class="footer__link--heading__icon"
+              >
+                <title>Twitter</title>
+                <path
+                  d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                />
+              </svg>
+            </a>
+            <span>Twitter</span>
+          </li>
+
+          <li class="footer__link-list--items">
+            <a href="#"
+              ><svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                class="footer__link--heading__icon"
+              >
+                <title>GitHub</title>
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                />
+              </svg>
+            </a>
+            <span>Github</span>
+          </li>
+
+          <li class="footer__link-list--items">
+            <a href="#"
+              ><svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                class="footer__link--heading__icon"
+              >
+                <title>LinkedIn</title>
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+            </a>
+            <span>Linkedin</span>
+          </li>
+
+          <li class="footer__link-list--items">
+            <a href="#"
+              ><svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                class="footer__link--heading__icon"
+              >
+                <title>Instagram</title>
+                <path
+                  d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+                />
+              </svg>
+            </a>
+            <span>Instagram</span>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script
+  type="module"
+  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+  nomodule
+  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
