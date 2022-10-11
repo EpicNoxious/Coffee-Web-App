@@ -26,6 +26,7 @@ $black: #000;
 
 html {
   font-size: 62.5%; // 10/16
+  overflow-x: hidden;
   // scroll-behavior: smooth;
 
   @include respond(big-desktop) {
@@ -38,6 +39,9 @@ html {
 
   @include respond(sm-tab) {
     font-size: 50%; // 8/16
+  }
+  @include respond(big-mob) {
+    font-size: 43.75%; // 7/16
   }
 }
 

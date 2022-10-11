@@ -31,762 +31,1016 @@
     ></script>
     {{ turbo() }}
   </head>
-<div id="money" class="coffee_box">
-      <form action="" id="coffee_buy" method="POST">
-  <body id="scrollbar">
-  {% block content %}
-    <div id="alert">{% include 'alert.html' %}</div>
-    <!-- Header -->
-    <header class="header">
-      <a href="#" class="header__logo">Caffeine 101</a>
+
+  <header class="header">
+    <a href="#" class="header__logo">Caffeine 101</a>
+    <label
+      for="navi-toggle"
+      class="navigation__button dropdown-button"
+      style="cursor: pointer; padding: 10px"
+    >
       <nav class="header__nav">
-        <ul class="header__nav__list">
-          <li>
-            <a class="header__nav__list--link" href="{{ url_for('index') }}"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              class="header__nav__list--link"
-              href="{{ url_for('sign_up_in') }}"
-              >Register</a
-            >
-          </li>
-          <li>
-            <a class="header__nav__list--link" href="{{ url_for('menu') }}"
-              >Menu</a
-            >
-          </li>
-          <li>
-            <a class="header__nav__list--link" href="{{ url_for('about') }}"
-              >About</a
-            >
-          </li>
-          <li>
-            <button class="user">
-              <ion-icon name="person-circle" class="user__logo"> </ion-icon>
-            </button>
-            <ul class="user__drop-down">
-              <li>
-                <a
-                  class="header__nav__list--link drop-down-link"
-                  href="{{ url_for('cart') }}"
-                  >Cart</a
-                >
-              </li>
-
-              <li>
-                <a
-                  class="header__nav__list--link drop-down-link"
-                  href="{{ url_for('signout') }}"
-                  >Signout</a
-                >
-              </li>
-            </ul>
-          </li>
-        </ul>
+        <div class="">
+          <span class="header__nav__icon">&nbsp;</span>
+        </div>
       </nav>
-    </header>
+    </label>
+  </header>
 
-    <div class="menu-container">
-      <div class="menu-content">
-        <div class="menu-content__header">
-          <h2 class="menu-content__header--heading">
-            Time to <span>Taste</span>
-          </h2>
-          <h3 class="menu-content__header--subheading">
-            How can we serve you today ?
-          </h3>
-          <div class="menu-content__text">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem
-            esse libero sapiente nisi, nam consequuntur blanditiis officiis
-            magni rem, harum voluptas earum tempore quae tempora voluptate
-            consectetur sequi repellat quo?
-          </div>
-        </div>
-      </div>
+  <div id="money" class="coffee_box">
+    <form action="" id="coffee_buy" method="POST">
+      <body id="scrollbar">
+        {% block content %}
+        <input type="checkbox" id="navi-toggle" class="navigation__checkbox" />
 
-      <div class="content-contain">
-        <div class="coffee-container">
-          <div class="coffee-header">
-            <div class="coffee-header__buttons coffee-header__button-one"></div>
-            <div class="coffee-header__buttons coffee-header__button-two"></div>
-            <div class="coffee-header__display"></div>
-            <div class="coffee-header__details"></div>
-          </div>
-          <div class="coffee-medium">
-            <div class="coffee-medium__exit"></div>
-            <div class="coffee-medium__arm"></div>
-            <div class="coffee-medium__liquid"></div>
-            <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
-            <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
-            <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
-            <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
-            <div class="coffee-medium__cup"></div>
-          </div>
-          <div class="coffee-footer"></div>
-          <div class="ingredients">
-            <div class="ingredients--item">Money: <span>{{ money }}</span></div>
-            <div class="ingredients--item">Water: <span>{{ water }}</span></div>
-            <div class="ingredients--item">Milk: <span>{{ milk }}</span></div>
-            <div class="ingredients--item">Beans: <span>{{ beans }}</span></div>
-            <div class="ingredients--item">Cups: <span>{{ cups }}</span></div>
-          </div>
-        </div>
-        <div class="proceed_content">
-          <button class="hero__content--text__button button-click check-out">
-            Contents
-          </button>
-          <button class="hero__content--text__button button-click check-out">
-            Check out
-          </button>
-        </div>
-      </div>
-
-      <!-- Right hanging cards -->
-      <div class="menu-do--1">
-        <div href="" class="menu-card menu-card--1">
-          <img
-            src="../static/img/Black Cup.png"
-            class="menu-card__image"
-            alt=""
-          />
-          <div class="menu-card__overlay">
-            <div class="menu-card__header">
-              <svg class="menu-card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-
-              <div class="menu-card__header-text">
-                <h3 class="menu-card__title menu-card__title--1">Espresso</h3>
-                <span class="menu-card__status">$ 2.50</span>
+        <div class="header__background--1">
+          <div class="nav">
+            <ul class="nav__list">
+              <div class="overflow">
+                <li class="nav__list--item">
+                  <a
+                    class="header__nav__list--link"
+                    href="{{ url_for('index') }}"
+                    >Home</a
+                  >
+                </li>
               </div>
-            </div>
-            <div class="menu-card__details">
-              <ul class="menu-card-list">
-                <li>Espresso</li>
-                <li>Water</li>
-              </ul>
-              <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.add_es.label.text }}"
-              >
-                <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.remove_es.label.text }}"
-              >
-              <div class="quantity">
-                <div class="quantity--item">
-                  Quantity: <span class="">{{ espresso }}</span>
+              <div class="overflow">
+                <li class="nav__list--item">
+                  <a
+                    class="header__nav__list--link"
+                    href="{{ url_for('sign_up_in') }}"
+                    >Register</a
+                  >
+                </li>
+              </div>
+              <div class="overflow">
+                <li class="nav__list--item">
+                  <a
+                    class="header__nav__list--link"
+                    href="{{ url_for('menu') }}"
+                    >Menu</a
+                  >
+                </li>
+              </div>
+              <div class="overflow">
+                <li class="nav__list--item">
+                  <a
+                    class="header__nav__list--link"
+                    href="{{ url_for('about') }}"
+                    >About</a
+                  >
+                </li>
+              </div>
+              <div class="overflow">
+                <li class="nav__list--item">
+                  <a
+                    class="header__nav__list--link drop-down-link"
+                    href="{{ url_for('cart') }}"
+                    >Cart</a
+                  >
+                </li>
+              </div>
+              <div class="overflow">
+                <li class="nav__list--item">
+                  <a
+                    class="header__nav__list--link drop-down-link"
+                    href="{{ url_for('signout') }}"
+                    >Signout</a
+                  >
+                </li>
+              </div>
+            </ul>
+          </div>
+          <p class="nav__copyright">&copy; All copyrights reserved</p>
+        </div>
+
+        <!-- Navigation Right Part -->
+        <div class="header__background--2">
+          <div class="nav">
+            <ul class="nav__list">
+              <div class="overflow" style="justify-content: flex-end">
+                <li class="svg-popin">
+                  <svg viewBox="0 0 100 100">
+                    <title>Caffeine 101</title>
+                    <defs>
+                      <path
+                        id="c-1"
+                        d="M 50, 50m -25, 0 a 25,25 0 1,1 50,0 a 25,25 0 1,1-50,0"
+                      ></path>
+                    </defs>
+                    <text
+                      fill="#fff"
+                      font-size="9px"
+                      font-family="Quicksand"
+                      font-weight="600"
+                      class="rotating"
+                      style="letter-spacing: 0.5px"
+                    >
+                      <textPath xlink:href="#c-1">
+                        Hope you liked the work❤️
+                      </textPath>
+                    </text>
+                  </svg>
+                </li>
+              </div>
+              <br />
+              <br />
+              <div class="overflow">
+                <li class="nav__list--text">
+                  <span style="display: block; color: var(--grey-2)"
+                    >About this Project:&nbsp;</span
+                  >
+                  It was a full stack project which was made by Jappreet Singh.
+                  The project was build just to brush up the skills with latest
+                  styling techinques in the market.
+                  <br />
+                  <br />
+                  Aim to build this project was to efficiently manage the
+                  manpower in fast food industries. With the help of this
+                  project, an organization will help itself by automating the
+                  ordering portion in their stores.
+                </li>
+              </div>
+              <br />
+              <br />
+              <div class="overflow" style="justify-content: flex-end">
+                <li class="nav__list--text">
+                  <ul class="nav__licon">
+                    <li class="nav__licon--1">
+                      <a href="#"
+                        ><svg
+                          role="img"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon"
+                        >
+                          <title>Twitter</title>
+                          <path
+                            d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                          />
+                        </svg>
+                      </a>
+                    </li>
+
+                    <li class="nav__licon--2">
+                      <a href="#"
+                        ><svg
+                          role="img"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon"
+                        >
+                          <title>GitHub</title>
+                          <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                          />
+                        </svg>
+                      </a>
+                    </li>
+
+                    <li class="nav__licon--3">
+                      <a href="#"
+                        ><svg
+                          role="img"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon"
+                        >
+                          <title>LinkedIn</title>
+                          <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                          />
+                        </svg>
+                      </a>
+                    </li>
+
+                    <li class="nav__licon--4">
+                      <a href="#"
+                        ><svg
+                          role="img"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon"
+                        >
+                          <title>Instagram</title>
+                          <path
+                            d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+                          />
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+
+        <input type="checkbox" id="navi-toggle" class="navigation__checkbox" />
+        <div id="alert">{% include 'alert.html' %}</div>
+
+        <div class="menu-container">
+          <div class="menu-content">
+            <div class="menu-content__header">
+              <h2 class="menu-content__header--heading">
+                Time to <span>Taste</span>
+              </h2>
+              <h3 class="menu-content__header--subheading">
+                How can we serve you today ?
+              </h3>
+              <div class="text-center">
+                <div class="menu-content__text">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Quidem esse libero sapiente nisi, nam consequuntur blanditiis
+                  officiis magni rem, harum voluptas earum tempore quae tempora
+                  voluptate consectetur sequi repellat quo?
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="menu-do--2">
-        <div href="" class="menu-card menu-card--2">
-          <img
-            src="../static/img/Black Cup 2.png"
-            class="menu-card__image"
-            alt=""
-          />
-          <div class="menu-card__overlay">
-            <div class="menu-card__header">
-              <svg class="menu-card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
 
-              <div class="menu-card__header-text">
-                <h3 class="menu-card__title menu-card__title--2">Latte</h3>
-                <span class="menu-card__status">$ 3.50</span>
+          <div class="content-contain">
+            <div class="coffee-container">
+              <div class="coffee-header">
+                <div
+                  class="coffee-header__buttons coffee-header__button-one"
+                ></div>
+                <div
+                  class="coffee-header__buttons coffee-header__button-two"
+                ></div>
+                <div class="coffee-header__display"></div>
+                <div class="coffee-header__details"></div>
               </div>
-            </div>
-            <div class="menu-card__details">
-              <ul class="menu-card-list">
-                <li>Espresso</li>
-                <li>Water</li>
-                <li>Steamed Milk</li>
-              </ul>
-              <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.add_la.label.text }}"
-              >
-                <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.remove_la.label.text }}"
-              >
-              <div class="quantity">
-                <div class="quantity--item">
-                  Quantity: <span class="">{{ latte }}</span>
+              <div class="coffee-medium">
+                <div class="coffee-medium__exit"></div>
+                <div class="coffee-medium__arm"></div>
+                <div class="coffee-medium__liquid"></div>
+                <div
+                  class="coffee-medium__smoke coffee-medium__smoke-one"
+                ></div>
+                <div
+                  class="coffee-medium__smoke coffee-medium__smoke-two"
+                ></div>
+                <div
+                  class="coffee-medium__smoke coffee-medium__smoke-three"
+                ></div>
+                <div
+                  class="coffee-medium__smoke coffee-medium__smoke-for"
+                ></div>
+                <div class="coffee-medium__cup"></div>
+              </div>
+              <div class="coffee-footer"></div>
+              <div class="ingredients">
+                <div class="ingredients--item">
+                  Money: <span>{{ money }}</span>
+                </div>
+                <div class="ingredients--item">
+                  Water: <span>{{ water }}</span>
+                </div>
+                <div class="ingredients--item">
+                  Milk: <span>{{ milk }}</span>
+                </div>
+                <div class="ingredients--item">
+                  Beans: <span>{{ beans }}</span>
+                </div>
+                <div class="ingredients--item">
+                  Cups: <span>{{ cups }}</span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-do--3">
-        <div href="" class="menu-card menu-card--3">
-          <img
-            src="../static/img/Black Cup 1.png"
-            class="menu-card__image"
-            alt=""
-          />
-          <div class="menu-card__overlay">
-            <div class="menu-card__header">
-              <svg class="menu-card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-
-              <div class="menu-card__header-text">
-                <h3 class="menu-card__title menu-card__title--3">Cappuccino</h3>
-                <span class="menu-card__status">$ 3.00</span>
-              </div>
-            </div>
-            <div class="menu-card__details">
-              <ul class="menu-card-list">
-                <li>Espresso</li>
-                <li>Water</li>
-                <li>Steamed Milk</li>
-                <li>Milk Foam</li>
-              </ul>
-              <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
+            <div class="proceed_content">
+              <input
+                type="submit"
+                class="hero__content--text__button button-click check-out"
                 name="btn"
-                value="{{ menu.add_ca.label.text }}"
-              >
-                <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.remove_ca.label.text }}"
-              >
-              <div class="quantity">
-                <div class="quantity--item">
-                  Quantity: <span class="">{{ cappuccino }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-do--4">
-        <div href="" class="menu-card menu-card--2">
-          <img
-            src="../static/img/Black Cup 2.png"
-            class="menu-card__image"
-            alt=""
-          />
-          <div class="menu-card__overlay">
-            <div class="menu-card__header">
-              <svg class="menu-card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-
-              <div class="menu-card__header-text">
-                <h3 class="menu-card__title menu-card__title--2">Cold Brew</h3>
-                <span class="menu-card__status">$ 4.00</span>
-              </div>
-            </div>
-            <div class="menu-card__details">
-              <ul class="menu-card-list">
-                <li>Espresso</li>
-                <li>Water</li>
-                <li>Cold Milk</li>
-                <li>Choco-Syrup</li>
-              </ul>
-              <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.add_cb.label.text }}"
-              >
-                <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.remove_cb.label.text }}"
-              >
-              <div class="quantity">
-                <div class="quantity--item">
-                  Quantity: <span class="">{{ coldbrew }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-do--5">
-        <div href="" class="menu-card menu-card--1">
-          <img
-            src="../static/img/Black Cup.png"
-            class="menu-card__image"
-            alt=""
-          />
-          <div class="menu-card__overlay">
-            <div class="menu-card__header">
-              <svg class="menu-card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-
-              <div class="menu-card__header-text">
-                <h3 class="menu-card__title menu-card__title--1">Americano</h3>
-                <span class="menu-card__status">$ 4.00</span>
-              </div>
-            </div>
-            <div class="menu-card__details">
-              <ul class="menu-card-list">
-                <li>Espresso</li>
-                <li>Water</li>
-              </ul>
-              <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.add_am.label.text }}"
-              >
-                <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.remove_am.label.text }}"
-              >
-              <div class="quantity">
-                <div class="quantity--item">
-                  Quantity: <span class="">{{ americano }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-do--6">
-        <div href="" class="menu-card menu-card--3">
-          <img
-            src="../static/img/Black Cup 1.png"
-            class="menu-card__image"
-            alt=""
-          />
-          <div class="menu-card__overlay">
-            <div class="menu-card__header">
-              <svg class="menu-card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-
-              <div class="menu-card__header-text">
-                <h3 class="menu-card__title menu-card__title--3">Macchiato</h3>
-                <span class="menu-card__status">$ 4.50</span>
-              </div>
-            </div>
-            <div class="menu-card__details">
-              <ul class="menu-card-list">
-                <li>Espresso</li>
-                <li>Steamed Milk</li>
-                <li>Milk Foam</li>
-              </ul>
-              <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.add_ma.label.text }}"
-              >
-                <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.remove_ma.label.text }}"
-              >
-              <div class="quantity">
-                <div class="quantity--item">
-                  Quantity: <span class="">{{ macchiato }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-do--7">
-        <div href="" class="menu-card menu-card--3">
-          <img
-            src="../static/img/Black Cup 1.png"
-            class="menu-card__image"
-            alt=""
-          />
-          <div class="menu-card__overlay">
-            <div class="menu-card__header">
-              <svg class="menu-card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-
-              <div class="menu-card__header-text">
-                <h3 class="menu-card__title menu-card__title--3">Flat White</h3>
-                <span class="menu-card__status">$ 4.75</span>
-              </div>
-            </div>
-            <div class="menu-card__details">
-              <ul class="menu-card-list">
-                <li>Espresso</li>
-                <li>Steamed Milk</li>
-                <li>Milk Foam</li>
-              </ul>
-              <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.add_fw.label.text }}"
-              >
-                <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.remove_fw.label.text }}"
-              >
-              <div class="quantity">
-                <div class="quantity--item">
-                  Quantity: <span class="">{{ flatwhite }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-do--8">
-        <div href="" class="menu-card menu-card--1">
-          <img
-            src="../static/img/Black Cup.png"
-            class="menu-card__image"
-            alt=""
-          />
-          <div class="menu-card__overlay">
-            <div class="menu-card__header">
-              <svg class="menu-card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-
-              <div class="menu-card__header-text">
-                <h3 class="menu-card__title menu-card__title--1">Affogato</h3>
-                <span class="menu-card__status">$ 5.00</span>
-              </div>
-            </div>
-            <div class="menu-card__details">
-              <ul class="menu-card-list">
-                <li>Espresso</li>
-                <li>Water</li>
-                <li>Steamed Milk</li>
-                <li>Vanilla Gelato</li>
-              </ul>
-              <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.add_af.label.text }}"
-              >
-                <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.remove_af.label.text }}"
-              >
-              <div class="quantity">
-                <div class="quantity--item">
-                  Quantity: <span class="">{{ affogato }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-do--9">
-        <div href="" class="menu-card menu-card--2">
-          <img
-            src="../static/img/Black Cup 2.png"
-            class="menu-card__image"
-            alt=""
-          />
-          <div class="menu-card__overlay">
-            <div class="menu-card__header">
-              <svg class="menu-card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-
-              <div class="menu-card__header-text">
-                <h3 class="menu-card__title menu-card__title--2">Tea</h3>
-                <span class="menu-card__status">$ 1.75</span>
-              </div>
-            </div>
-            <div class="menu-card__details">
-              <ul class="menu-card-list">
-                <li>Tea Leaves</li>
-                <li>Water</li>
-                <li>Steamed Milk</li>
-                <li>Cardamom</li>
-              </ul>
-              <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.add_te.label.text }}"
-              >
-                <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.remove_te.label.text }}"
-              >
-              <div class="quantity">
-                <div class="quantity--item">
-                  Quantity: <span class="">{{ tea }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-do--10">
-        <div href="" class="menu-card menu-card--3">
-          <img
-            src="../static/img/Black Cup 1.png"
-            class="menu-card__image"
-            alt=""
-          />
-          <div class="menu-card__overlay">
-            <div class="menu-card__header">
-              <svg class="menu-card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-
-              <div class="menu-card__header-text">
-                <h3 class="menu-card__title menu-card__title--3">
-                  Coffee Shake
-                </h3>
-                <span class="menu-card__status">$ 5.25</span>
-              </div>
-            </div>
-            <div class="menu-card__details">
-              <ul class="menu-card-list">
-                <li>Espresso</li>
-                <li>Water</li>
-                <li>Cold Milk</li>
-                <li>Ice Cream</li>
-                <li>Choco Chips</li>
-              </ul>
-              <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.add_cm.label.text }}"
-              >
-                <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.remove_cm.label.text }}"
-              >
-              <div class="quantity">
-                <div class="quantity--item">
-                  Quantity: <span class="">{{ coffeemilkshake }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-do--11">
-        <div href="" class="menu-card menu-card--2">
-          <img
-            src="../static/img/Black Cup 2.png"
-            class="menu-card__image"
-            alt=""
-          />
-          <div class="menu-card__overlay">
-            <div class="menu-card__header">
-              <svg class="menu-card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-
-              <div class="menu-card__header-text">
-                <h3 class="menu-card__title menu-card__title--2">Cafe Breve</h3>
-                <span class="menu-card__status">$ 3.75</span>
-              </div>
-            </div>
-            <div class="menu-card__details">
-              <ul class="menu-card-list">
-                <li>Espresso</li>
-                <li>Water</li>
-                <li>Steamed Milk</li>
-                <li>Milk Foam</li>
-              </ul>
-              <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.add_cr.label.text }}"
-              >
-                <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.remove_cr.label.text }}"
-              >
-              <div class="quantity">
-                <div class="quantity--item">
-                  Quantity: <span class="">{{ cafebreve }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-do--12">
-        <div href="" class="menu-card menu-card--1">
-          <img
-            src="../static/img/Black Cup.png"
-            class="menu-card__image"
-            alt=""
-          />
-          <div class="menu-card__overlay">
-            <div class="menu-card__header">
-              <svg class="menu-card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-
-              <div class="menu-card__header-text">
-                <h3 class="menu-card__title menu-card__title--1">Mocha</h3>
-                <span class="menu-card__status">$ 4.25</span>
-              </div>
-            </div>
-            <div class="menu-card__details">
-              <ul class="menu-card-list">
-                <li>Espresso</li>
-                <li>Milk Foam</li>
-                <li>Milk</li>
-                <li>Ice Cream</li>
-                <li>Cocoa Powder</li>
-              </ul>
-              <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.add_mo.label.text }}"
-              >
-                <input type="submit"
-                class="card-add-btn hero__content--text__button button-click menu-button"
-                name="btn"
-                value="{{ menu.remove_mo.label.text }}"
-              >
-              <div class="quantity">
-                <div class="quantity--item">
-                  Quantity: <span class="">{{ mocha }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endblock %}
-  </body>
-  <footer class="footer">
-    <div class="footer__connect">
-      <div class="footer__connect--logo">Caffeine 101</div>
-
-      <div class="footer__connect--text">
-        Caffeine 101 is a new company always seeking out there for new and
-        innovative ideas to serve you best with our products. Our motive is to
-        offer you best service, and ease out your workday life.
-      </div>
-
-      <div class="footer__connect--copyright">&copy; Copyright Inc.</div>
-    </div>
-
-    <div class="footer__contact">
-      <div class="footer__contact--heading">contact us</div>
-      <div class="footer__contact--address">
-        <span><ion-icon name="location-sharp"></ion-icon></span>
-        18/9B Tilak Nagar, New Delhi-110018
-      </div>
-
-      <div class="footer__contact--number">
-        <span><ion-icon name="call"></ion-icon></span>
-        +91 9999 040232
-      </div>
-
-      <div class="footer__contact--email">
-        <span><ion-icon name="mail"></ion-icon></span>
-        jappreet16042002@gmail.com
-      </div>
-    </div>
-
-    <div class="footer__link">
-      <div class="footer__link--heading">Connect here</div>
-
-      <ul class="footer__link-list">
-        <li class="footer__link-list--items">
-          <a href="#"
-            ><svg
-              role="img"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              class="footer__link--heading__icon"
-            >
-              <title>Twitter</title>
-              <path
-                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                value="{{ buy.contents.label.text }}"
               />
-            </svg>
-          </a>
-          <span>Twitter</span>
-        </li>
-
-        <li class="footer__link-list--items">
-          <a href="#"
-            ><svg
-              role="img"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              class="footer__link--heading__icon"
-            >
-              <title>GitHub</title>
-              <path
-                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              <input
+                type="submit"
+                class="hero__content--text__button button-click check-out"
+                name="btn"
+                value="{{ buy.checkout.label.text }}"
               />
-            </svg>
-          </a>
-          <span>Github</span>
-        </li>
+            </div>
+          </div>
 
-        <li class="footer__link-list--items">
-          <a href="#"
-            ><svg
-              role="img"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              class="footer__link--heading__icon"
-            >
-              <title>LinkedIn</title>
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+          <!-- Right hanging cards -->
+          <div class="menu-do--1">
+            <div href="" class="menu-card menu-card--1" tabindex="0">
+              <img
+                src="../static/img/Black Cup.png"
+                class="menu-card__image"
+                alt=""
               />
-            </svg>
-          </a>
-          <span>Linkedin</span>
-        </li>
+              <div class="menu-card__overlay">
+                <div class="menu-card__header">
+                  <svg
+                    class="menu-card__arc"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path />
+                  </svg>
 
-        <li class="footer__link-list--items">
-          <a href="#"
-            ><svg
-              role="img"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              class="footer__link--heading__icon"
-            >
-              <title>Instagram</title>
-              <path
-                d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+                  <div class="menu-card__header-text">
+                    <h3 class="menu-card__title menu-card__title--1">
+                      Espresso
+                    </h3>
+                    <span class="menu-card__status">$ 2.50</span>
+                  </div>
+                </div>
+                <div class="menu-card__details">
+                  <ul class="menu-card-list">
+                    <li>Espresso</li>
+                    <li>Water</li>
+                  </ul>
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.add_es.label.text }}"
+                  />
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.remove_es.label.text }}"
+                  />
+                  <div class="quantity">
+                    <div class="quantity--item">
+                      Quantity: <span class="">{{ espresso }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-do--2">
+            <div href="" class="menu-card menu-card--2" tabindex="0">
+              <img
+                src="../static/img/Black Cup 2.png"
+                class="menu-card__image"
+                alt=""
               />
-            </svg>
-          </a>
-          <span>Instagram</span>
-        </li>
-      </ul>
-    </div>
-  </footer>
-</form>
-</div>
+              <div class="menu-card__overlay">
+                <div class="menu-card__header">
+                  <svg
+                    class="menu-card__arc"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path />
+                  </svg>
+
+                  <div class="menu-card__header-text">
+                    <h3 class="menu-card__title menu-card__title--2">Latte</h3>
+                    <span class="menu-card__status">$ 3.50</span>
+                  </div>
+                </div>
+                <div class="menu-card__details">
+                  <ul class="menu-card-list">
+                    <li>Espresso</li>
+                    <li>Water</li>
+                    <li>Steamed Milk</li>
+                  </ul>
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.add_la.label.text }}"
+                  />
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.remove_la.label.text }}"
+                  />
+                  <div class="quantity">
+                    <div class="quantity--item">
+                      Quantity: <span class="">{{ latte }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-do--3">
+            <div href="" class="menu-card menu-card--3" tabindex="0">
+              <img
+                src="../static/img/Black Cup 1.png"
+                class="menu-card__image"
+                alt=""
+              />
+              <div class="menu-card__overlay">
+                <div class="menu-card__header">
+                  <svg
+                    class="menu-card__arc"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path />
+                  </svg>
+
+                  <div class="menu-card__header-text">
+                    <h3 class="menu-card__title menu-card__title--3">
+                      Cappuccino
+                    </h3>
+                    <span class="menu-card__status">$ 3.00</span>
+                  </div>
+                </div>
+                <div class="menu-card__details">
+                  <ul class="menu-card-list">
+                    <li>Espresso</li>
+                    <li>Water</li>
+                    <li>Steamed Milk</li>
+                    <li>Milk Foam</li>
+                  </ul>
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.add_ca.label.text }}"
+                  />
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.remove_ca.label.text }}"
+                  />
+                  <div class="quantity">
+                    <div class="quantity--item">
+                      Quantity: <span class="">{{ cappuccino }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-do--4">
+            <div href="" class="menu-card menu-card--2" tabindex="0">
+              <img
+                src="../static/img/Black Cup 2.png"
+                class="menu-card__image"
+                alt=""
+              />
+              <div class="menu-card__overlay">
+                <div class="menu-card__header">
+                  <svg
+                    class="menu-card__arc"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path />
+                  </svg>
+
+                  <div class="menu-card__header-text">
+                    <h3 class="menu-card__title menu-card__title--2">
+                      Cold Brew
+                    </h3>
+                    <span class="menu-card__status">$ 4.00</span>
+                  </div>
+                </div>
+                <div class="menu-card__details">
+                  <ul class="menu-card-list">
+                    <li>Espresso</li>
+                    <li>Water</li>
+                    <li>Cold Milk</li>
+                    <li>Choco-Syrup</li>
+                  </ul>
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.add_cb.label.text }}"
+                  />
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.remove_cb.label.text }}"
+                  />
+                  <div class="quantity">
+                    <div class="quantity--item">
+                      Quantity: <span class="">{{ coldbrew }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-do--5">
+            <div href="" class="menu-card menu-card--1" tabindex="0">
+              <img
+                src="../static/img/Black Cup.png"
+                class="menu-card__image"
+                alt=""
+              />
+              <div class="menu-card__overlay">
+                <div class="menu-card__header">
+                  <svg
+                    class="menu-card__arc"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path />
+                  </svg>
+
+                  <div class="menu-card__header-text">
+                    <h3 class="menu-card__title menu-card__title--1">
+                      Americano
+                    </h3>
+                    <span class="menu-card__status">$ 4.00</span>
+                  </div>
+                </div>
+                <div class="menu-card__details">
+                  <ul class="menu-card-list">
+                    <li>Espresso</li>
+                    <li>Water</li>
+                  </ul>
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.add_am.label.text }}"
+                  />
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.remove_am.label.text }}"
+                  />
+                  <div class="quantity">
+                    <div class="quantity--item">
+                      Quantity: <span class="">{{ americano }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-do--6">
+            <div href="" class="menu-card menu-card--3" tabindex="0">
+              <img
+                src="../static/img/Black Cup 1.png"
+                class="menu-card__image"
+                alt=""
+              />
+              <div class="menu-card__overlay">
+                <div class="menu-card__header">
+                  <svg
+                    class="menu-card__arc"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path />
+                  </svg>
+
+                  <div class="menu-card__header-text">
+                    <h3 class="menu-card__title menu-card__title--3">
+                      Macchiato
+                    </h3>
+                    <span class="menu-card__status">$ 4.50</span>
+                  </div>
+                </div>
+                <div class="menu-card__details">
+                  <ul class="menu-card-list">
+                    <li>Espresso</li>
+                    <li>Steamed Milk</li>
+                    <li>Milk Foam</li>
+                  </ul>
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.add_ma.label.text }}"
+                  />
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.remove_ma.label.text }}"
+                  />
+                  <div class="quantity">
+                    <div class="quantity--item">
+                      Quantity: <span class="">{{ macchiato }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-do--7">
+            <div href="" class="menu-card menu-card--3" tabindex="0">
+              <img
+                src="../static/img/Black Cup 1.png"
+                class="menu-card__image"
+                alt=""
+              />
+              <div class="menu-card__overlay">
+                <div class="menu-card__header">
+                  <svg
+                    class="menu-card__arc"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path />
+                  </svg>
+
+                  <div class="menu-card__header-text">
+                    <h3 class="menu-card__title menu-card__title--3">
+                      Flat White
+                    </h3>
+                    <span class="menu-card__status">$ 4.75</span>
+                  </div>
+                </div>
+                <div class="menu-card__details">
+                  <ul class="menu-card-list">
+                    <li>Espresso</li>
+                    <li>Steamed Milk</li>
+                    <li>Milk Foam</li>
+                  </ul>
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.add_fw.label.text }}"
+                  />
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.remove_fw.label.text }}"
+                  />
+                  <div class="quantity">
+                    <div class="quantity--item">
+                      Quantity: <span class="">{{ flatwhite }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-do--8">
+            <div href="" class="menu-card menu-card--1" tabindex="0">
+              <img
+                src="../static/img/Black Cup.png"
+                class="menu-card__image"
+                alt=""
+              />
+              <div class="menu-card__overlay">
+                <div class="menu-card__header">
+                  <svg
+                    class="menu-card__arc"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path />
+                  </svg>
+
+                  <div class="menu-card__header-text">
+                    <h3 class="menu-card__title menu-card__title--1">
+                      Affogato
+                    </h3>
+                    <span class="menu-card__status">$ 5.00</span>
+                  </div>
+                </div>
+                <div class="menu-card__details">
+                  <ul class="menu-card-list">
+                    <li>Espresso</li>
+                    <li>Water</li>
+                    <li>Steamed Milk</li>
+                    <li>Vanilla Gelato</li>
+                  </ul>
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.add_af.label.text }}"
+                  />
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.remove_af.label.text }}"
+                  />
+                  <div class="quantity">
+                    <div class="quantity--item">
+                      Quantity: <span class="">{{ affogato }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-do--9">
+            <div href="" class="menu-card menu-card--2" tabindex="0">
+              <img
+                src="../static/img/Black Cup 2.png"
+                class="menu-card__image"
+                alt=""
+              />
+              <div class="menu-card__overlay">
+                <div class="menu-card__header">
+                  <svg
+                    class="menu-card__arc"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path />
+                  </svg>
+
+                  <div class="menu-card__header-text">
+                    <h3 class="menu-card__title menu-card__title--2">Tea</h3>
+                    <span class="menu-card__status">$ 1.75</span>
+                  </div>
+                </div>
+                <div class="menu-card__details">
+                  <ul class="menu-card-list">
+                    <li>Tea Leaves</li>
+                    <li>Water</li>
+                    <li>Steamed Milk</li>
+                    <li>Cardamom</li>
+                  </ul>
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.add_te.label.text }}"
+                  />
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.remove_te.label.text }}"
+                  />
+                  <div class="quantity">
+                    <div class="quantity--item">
+                      Quantity: <span class="">{{ tea }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-do--10">
+            <div href="" class="menu-card menu-card--3" tabindex="0">
+              <img
+                src="../static/img/Black Cup 1.png"
+                class="menu-card__image"
+                alt=""
+              />
+              <div class="menu-card__overlay">
+                <div class="menu-card__header">
+                  <svg
+                    class="menu-card__arc"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path />
+                  </svg>
+
+                  <div class="menu-card__header-text">
+                    <h3 class="menu-card__title menu-card__title--3">
+                      Coffee Shake
+                    </h3>
+                    <span class="menu-card__status">$ 5.25</span>
+                  </div>
+                </div>
+                <div class="menu-card__details">
+                  <ul class="menu-card-list">
+                    <li>Espresso</li>
+                    <li>Water</li>
+                    <li>Cold Milk</li>
+                    <li>Ice Cream</li>
+                    <li>Choco Chips</li>
+                  </ul>
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.add_cm.label.text }}"
+                  />
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.remove_cm.label.text }}"
+                  />
+                  <div class="quantity">
+                    <div class="quantity--item">
+                      Quantity: <span class="">{{ coffeemilkshake }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-do--11">
+            <div href="" class="menu-card menu-card--2" tabindex="0">
+              <img
+                src="../static/img/Black Cup 2.png"
+                class="menu-card__image"
+                alt=""
+              />
+              <div class="menu-card__overlay">
+                <div class="menu-card__header">
+                  <svg
+                    class="menu-card__arc"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path />
+                  </svg>
+
+                  <div class="menu-card__header-text">
+                    <h3 class="menu-card__title menu-card__title--2">
+                      Cafe Breve
+                    </h3>
+                    <span class="menu-card__status">$ 3.75</span>
+                  </div>
+                </div>
+                <div class="menu-card__details">
+                  <ul class="menu-card-list">
+                    <li>Espresso</li>
+                    <li>Water</li>
+                    <li>Steamed Milk</li>
+                    <li>Milk Foam</li>
+                  </ul>
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.add_cr.label.text }}"
+                  />
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.remove_cr.label.text }}"
+                  />
+                  <div class="quantity">
+                    <div class="quantity--item">
+                      Quantity: <span class="">{{ cafebreve }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-do--12">
+            <div href="" class="menu-card menu-card--3" tabindex="0">
+              <img
+                src="../static/img/Black Cup.png"
+                class="menu-card__image"
+                alt=""
+              />
+              <div class="menu-card__overlay">
+                <div class="menu-card__header">
+                  <svg
+                    class="menu-card__arc"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path />
+                  </svg>
+
+                  <div class="menu-card__header-text">
+                    <h3 class="menu-card__title menu-card__title--1">Mocha</h3>
+                    <span class="menu-card__status">$ 4.25</span>
+                  </div>
+                </div>
+                <div class="menu-card__details">
+                  <ul class="menu-card-list">
+                    <li>Espresso</li>
+                    <li>Milk Foam</li>
+                    <li>Milk</li>
+                    <li>Ice Cream</li>
+                    <li>Cocoa Powder</li>
+                  </ul>
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.add_mo.label.text }}"
+                  />
+                  <input
+                    type="submit"
+                    class="card-add-btn hero__content--text__button button-click menu-button"
+                    name="btn"
+                    value="{{ menu.remove_mo.label.text }}"
+                  />
+                  <div class="quantity">
+                    <div class="quantity--item">
+                      Quantity: <span class="">{{ mocha }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endblock %}
+      </body>
+      <footer class="footer">
+        <div class="footer__connect">
+          <div class="footer__connect--logo">Caffeine 101</div>
+
+          <div class="footer__connect--text">
+            Caffeine 101 is a new company always seeking out there for new and
+            innovative ideas to serve you best with our products. Our motive is
+            to offer you best service, and ease out your workday life.
+          </div>
+
+          <div class="footer__connect--copyright">&copy; Copyright Inc.</div>
+        </div>
+
+        <div class="footer__contact">
+          <div class="footer__contact--heading">contact us</div>
+          <div class="footer__contact--address">
+            <div class="bug-fix">
+              <span><ion-icon name="location-sharp"></ion-icon></span>
+            </div>
+            18/9B Tilak Nagar, New Delhi-110018
+          </div>
+
+          <div class="footer__contact--number">
+            <div class="bug-fix">
+              <span><ion-icon name="call"></ion-icon></span>
+            </div>
+            +91 9999 040232
+          </div>
+
+          <div class="footer__contact--email">
+            <div class="bug-fix">
+              <span><ion-icon name="mail"></ion-icon></span>
+            </div>
+            jappreet16042002@gmail.com
+          </div>
+        </div>
+
+        <div class="footer__link">
+          <div class="footer__link--heading">Connect here</div>
+
+          <ul class="footer__link-list">
+            <li class="footer__link-list--items">
+              <a href="#"
+                ><svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="footer__link--heading__icon"
+                >
+                  <title>Twitter</title>
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                  />
+                </svg>
+              </a>
+              <span>Twitter</span>
+            </li>
+
+            <li class="footer__link-list--items">
+              <a href="#"
+                ><svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="footer__link--heading__icon"
+                >
+                  <title>GitHub</title>
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                  />
+                </svg>
+              </a>
+              <span>Github</span>
+            </li>
+
+            <li class="footer__link-list--items">
+              <a href="#"
+                ><svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="footer__link--heading__icon"
+                >
+                  <title>LinkedIn</title>
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+              <span>Linkedin</span>
+            </li>
+
+            <li class="footer__link-list--items">
+              <a href="#"
+                ><svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="footer__link--heading__icon"
+                >
+                  <title>Instagram</title>
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+                  />
+                </svg>
+              </a>
+              <span>Instagram</span>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </form>
+  </div>
 </html>
-
-<script
-  type="module"
-  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-></script>
-<script
-  nomodule
-  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-></script>

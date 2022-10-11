@@ -24,6 +24,9 @@
     @include respond(big-tab) {
       grid-template-columns: repeat(2, 1fr);
     }
+    @include respond(sm-tab) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &__title {
@@ -38,6 +41,9 @@
       letter-spacing: 0.5px;
       color: var(--off-white);
       font-family: "Lobster Two";
+      @include respond(big-mob) {
+        font-size: 4.8rem;
+      }
     }
     &--subheading {
       font-size: 1.8rem;
@@ -69,6 +75,10 @@
 
   @include respond(md-tab) {
     height: 30rem;
+  }
+  @include respond(sm-tab) {
+    height: 45rem;
+    max-width: 35rem;
   }
 
   &--1 {
@@ -196,7 +206,7 @@
     font-family: "Quicksand";
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 7;
     overflow: hidden;
   }
 

@@ -27,6 +27,9 @@
       letter-spacing: 0.5px;
       text-align: center;
       font-family: "Lobster Two";
+      @include respond(big-mob) {
+        font-size: 4.8rem;
+      }
     }
 
     &__sub-heading {
@@ -92,6 +95,9 @@
     justify-content: space-evenly;
     position: relative;
     margin-top: 3.2rem;
+    @include respond(sm-tab) {
+      margin-top: 6.4rem;
+    }
 
     &-content {
       position: relative;
@@ -112,6 +118,9 @@
         color: var(--off-black-3);
         letter-spacing: 0.5px;
         position: relative;
+        @include respond(sm-/mob) {
+          font-size: 1.4rem;
+        }
       }
     }
 

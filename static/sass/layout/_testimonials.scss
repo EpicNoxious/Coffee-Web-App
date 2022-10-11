@@ -3,6 +3,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 8rem 3.2rem 3.2rem 3.2rem;
+  @include respond(sm-tab) {
+    grid-template-columns: 1fr;
+  }
 
   &__title {
     text-align: center;
@@ -15,6 +18,9 @@
       text-transform: capitalize;
       letter-spacing: 0.5px;
       font-family: "Lobster Two";
+      @include respond(big-mob) {
+        font-size: 4.8rem;
+      }
     }
 
     &--subheading {
@@ -35,9 +41,6 @@
 .testimonials {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  @include respond(md-tab) {
-    grid-template-columns: 1fr;
-  }
   row-gap: 4.8rem;
   column-gap: 8rem;
 
@@ -45,8 +48,16 @@
     column-gap: 3.6rem;
   }
   @include respond(md-tab) {
-    column-gap: 2.4rem;
+    grid-template-columns: 1fr;
+    gap: 4.8rem;
   }
+  @include respond(sm-tab) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include respond(sm-mob) {
+    grid-template-columns: 1fr;
+  }
+
   &__fig {
     padding: 2.4rem;
     @include respond(sm-desktop) {

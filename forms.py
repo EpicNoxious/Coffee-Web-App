@@ -42,12 +42,10 @@ class Menu(FlaskForm):
 
 
 class Buy(FlaskForm):
-    submit = SubmitField("Buy Me")
+    contents = SubmitField("Show Content")
+    checkout = SubmitField("Proceed Cart")
 
-#
-# class Navigation(FlaskForm):
-#     home = SubmitField("Home")
-#     register = SubmitField("Register")
-#     menu = SubmitField("Menu")
-#     about = SubmitField("About")
-#     signout = SubmitField("Sign Out")
+
+class CheckOut(FlaskForm):
+    checkout = SubmitField("Check Out")
+

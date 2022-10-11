@@ -1,7 +1,7 @@
 import time
 from flask import Flask, render_template, redirect, url_for, request, flash, jsonify, session
 from pymongo import MongoClient
-from forms import SignUp, SignIn, Menu, Buy
+from forms import SignUp, SignIn, Menu, Buy, CheckOut
 from functools import wraps
 from turbo_flask import Turbo
 import uuid
@@ -670,7 +670,7 @@ class User:
                 }
         }
         users.insert_one(user)
-        flash("")
+        flash("User Signed Up")
         return self.start_session(user)
 
     def signin(self, user_data):
@@ -681,6 +681,7 @@ class User:
             "password": user_data['password'],
             "cart": user_data['cart']
         }
+        flash("User Signed In")
         return self.start_session(user)
 
     def details(self):
@@ -691,13 +692,10 @@ class User:
         return redirect('/')
 
 
-
-
 class Machine:
     def contents(self):
         result = device.find_one({'name': 'caffeine 101'})
         return result
-
 
 
 @app.after_request
@@ -719,6 +717,7 @@ def login_required(f):
         if 'logged_in' in session:
             return f(*args, **kwargs)
         else:
+            flash("Login First")
             return redirect("/")
     return wrap
 
@@ -910,11 +909,24 @@ def menu():
             else:
                 flash("Login First")
 
-        # if buy.submit() and request.form['btn'] == 'Buy Me':  # buy button
-        #     return redirect(url_for('cart'))
+        if buy.checkout() and request.form['btn'] == 'Proceed Cart':  # buy button
+            if 'logged_in' in session:
+                return redirect(url_for('cart'))
+            else:
+                flash("Login First")
+        
+        if buy.contents() and request.form['btn'] == 'Show Content':  # buy button
+            if 'logged_in' in session:
+                print(1111)
+            else:
+                flash("Login First")
 
         return turbo.stream([
             turbo.replace(render_template('menu.html', menu=menu, buy=buy), target='money'),
+            turbo.replace(render_template('menu.html', menu=menu, buy=buy), target='water'),
+            turbo.replace(render_template('menu.html', menu=menu, buy=buy), target='milk'),
+            turbo.replace(render_template('menu.html', menu=menu, buy=buy), target='beans'),
+            turbo.replace(render_template('menu.html', menu=menu, buy=buy), target='cups'),
             turbo.replace(render_template('menu.html', menu=menu, buy=buy), target='espresso'),
             turbo.replace(render_template('menu.html', menu=menu, buy=buy), target='latte'),
             turbo.replace(render_template('menu.html', menu=menu, buy=buy), target='cappuccino'),
@@ -947,11 +959,80 @@ def success():
 
 
 @app.route("/cart/", methods=['GET', 'POST'])
+@login_required
 def cart():
+    machine = Machine()
+    checkout = CheckOut()
     cart = users.find_one({'email': session['user']['email']})
     products = cart['cart']
-    print(products)
-    return render_template('cart.html', products=products)
+    result = machine.contents()
+    cost = 0
+    number = 0
+    qty_list = products
+
+    for k, v in qty_list.items():
+        if(k == 'espresso'):
+            cost += 2.50*v
+            number += v
+        if(k == 'latte'):
+            cost += 3.50*v
+            number += v
+        if(k == 'cappuccino'):
+            cost += 4.00*v
+            number += v
+        if(k == 'coldbrew'):
+            cost += 4.00*v
+            number += v
+        if(k == 'americano'):
+            cost += 4.00*v
+            number += v
+        if(k == 'macchiato'):
+            cost += 4.50*v
+            number += v
+        if(k == 'flatwhite'):
+            cost += 4.75*v
+            number += v
+        if(k == 'affogato'):
+            cost += 5.00*v
+            number += v
+        if(k == 'tea'):
+            cost += 1.75*v
+            number += v
+        if(k == 'coffeemilkshake'):
+            cost += 5.25*v
+            number += v
+        if(k == 'cafebreve'):
+            cost += 3.00*v
+            number += v
+        if(k == 'mocha'):
+            cost += 4.25*v
+            number += v
+        print(k, v, cost)
+
+        
+    if checkout.validate_on_submit():
+        checkout_cart = {
+                'espresso': 0,
+                    'latte': 0,
+                    'cappuccino': 0,
+                    'coldbrew': 0,
+                    'americano': 0,
+                    'macchiato': 0,
+                    'flatwhite': 0,
+                    'affogato': 0,
+                    'tea': 0,
+                    'coffeemilkshake': 0,
+                    'cafebreve': 0,
+                    'mocha': 0
+                }
+        users.update_one(
+            {'email': cart['email']},
+            {'$set': {'cart': checkout_cart}}
+        )
+        flash('Checked Out successfully')
+        return redirect(url_for('index'))
+    return render_template('cart.html', products=products, checkout=checkout, result=result, qty_list=qty_list, cost=cost, number=number)
+
 
 
 @app.route("/signout/", methods=['GET', 'POST'])
@@ -967,6 +1048,10 @@ def inject_load():
         cart = users.find_one({'email': session['user']['email']})
         result = machine.contents()
         money = result['money']
+        water = result['water']
+        milk = result['milk']
+        beans = result['beans']
+        cups = result['cups']
         espresso = cart['cart']['espresso']
         latte = cart['cart']['latte']
         cappuccino = cart['cart']['cappuccino']
@@ -980,7 +1065,7 @@ def inject_load():
         cafebreve = cart['cart']['cafebreve']
         mocha = cart['cart']['mocha']
 
-        return {'money': money, 'espresso': espresso, 'latte': latte, 'cappuccino': cappuccino, 'coldbrew': coldbrew, \
+        return {'money': money, 'water': water, 'milk': milk, 'beans': beans, 'cups': cups, 'espresso': espresso, 'latte': latte, 'cappuccino': cappuccino, 'coldbrew': coldbrew, \
                 'americano': americano, 'macchiato': macchiato, 'flatwhite': flatwhite, 'affogato': affogato, \
                 'tea': tea, 'coffeemilkshake': coffeemilkshake, 'cafebreve': cafebreve, 'mocha': mocha}
     else:
