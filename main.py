@@ -9,7 +9,7 @@ import uuid
 app = Flask(__name__)
 turbo = Turbo(app)
 app.secret_key = 'Caffeine 101'
-cluster = "mongodb://localhost:27017"
+cluster = "mongodb+srv://Noxious:Ja-pp-re-et16@cluster0.p231li5.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(cluster)
 db = client['brew-nation']
 users = db.users

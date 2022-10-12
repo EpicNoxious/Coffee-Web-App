@@ -30,7 +30,7 @@ html {
   // scroll-behavior: smooth;
 
   @include respond(big-desktop) {
-    font-size: 75%; // 12/16
+    font-size: 0.6vw;
   }
 
   @include respond(md-tab) {

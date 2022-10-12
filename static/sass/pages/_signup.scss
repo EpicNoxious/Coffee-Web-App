@@ -1,10 +1,21 @@
 .flip-card-container {
-  margin: 3.2rem auto;
+  margin: 4.8rem auto;
   padding: 0 6.4rem;
 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 8rem 1fr;
+  grid-template-rows: 8rem repeat(6, 6.6rem);
+  @include respond(big-tab) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 8rem repeat(11, 6.6rem);
+  }
+  @include respond(big-mob) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 8rem repeat(12, 6.6rem);
+  }
+  @include respond(big-mob) {
+    margin-bottom: 5.6rem;
+  }
   gap: 3.2rem;
 
   .flip-card {
@@ -100,6 +111,17 @@ h6 span {
   grid-column: 3 / -1;
   position: relative;
   width: 100%;
+  margin-bottom: 3.6rem;
+  @include respond(big-tab) {
+    grid-row: 6 / -1;
+    grid-column: 1 / -1;
+    margin-bottom: 4.8rem;
+  }
+  @include respond(big-mob) {
+    grid-row: 7 / -1;
+    grid-column: 1 / -1;
+    margin-bottom: 4.8rem;
+  }
 }
 
 [type="checkbox"]:checked,
@@ -120,21 +142,32 @@ h6 span {
     padding: 0;
     margin: 0 auto 3.2rem auto;
     cursor: pointer;
-    background-color: var(--brown-light);
+    background-color: var(--off-white);
     z-index: 1000;
+    @include respond(sm-tab) {
+      width: 45px;
+      height: 12px;
+    }
   }
 
   &:checked + label:before,
   &:not(:checked) + label:before {
     position: absolute;
     display: block;
-    width: 4rem;
-    height: 4rem;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    color: var(--brown-light);
-    background-color: var(--off-black-3);
+    color: var(--off-white);
+    background-color: var(--brown-light);
     font-family: "Quicksand";
     content: "\2194";
+    font-weight: 800;
+    @include respond(sm-tab) {
+      width: 30px;
+      content: "";
+      height: 30px;
+    }
+
     z-index: 20;
     top: -10px;
     left: -10px;
@@ -154,10 +187,19 @@ h6 span {
 .card-3d-wrap {
   position: relative;
   width: 60%;
+  @include respond(sm-tab) {
+    width: 75%;
+  }
+  @include respond(big-mob) {
+    width: 85%;
+  }
+  @include respond(sm-mob) {
+    width: 95%;
+  }
   height: 100%;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  perspective: 140rem;
+  perspective: 1400px;
   margin: 0 auto;
 }
 .card-3d-wrapper {
