@@ -2,13 +2,12 @@
   background-color: var(--off-white);
   // background-color: var(--brown-light);
   display: grid;
-  padding: 8rem 3.2rem 3.2rem 3.2rem;
+  padding: 9.6rem 3.2rem 9.6rem 3.2rem;
   grid-template-columns: 1fr 1fr;
   min-height: 100vh;
   position: relative;
   @include respond(big-mob) {
     grid-template-columns: 1fr;
-    padding: 3.2rem;
   }
   &::after {
     content: "";

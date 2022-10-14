@@ -756,7 +756,6 @@ def sign_up_in():
                  }
             user = User()
             user.signup(user_data)
-            time.sleep(1)
             return redirect(url_for('index'))
 
         if turbo.can_stream():
@@ -774,7 +773,6 @@ def sign_up_in():
         else:
             user = User()
             user.signin(user_data)
-            time.sleep(1)
             return redirect(url_for('index'))
 
         if turbo.can_stream():
@@ -965,11 +963,11 @@ def cart():
     machine = Machine()
     checkout = CheckOut()
     cart = users.find_one({'email': session['user']['email']})
-    products = cart['cart']
     result = machine.contents()
+    products = cart['cart']
+    qty_list = products
     cost = 0
     number = 0
-    qty_list = products
 
     for k, v in qty_list.items():
         if(k == 'espresso'):
@@ -1008,7 +1006,8 @@ def cart():
         if(k == 'mocha'):
             cost += 4.25*v
             number += v
-        print(k, v, cost)
+    print(number, cost)
+    print(result)
 
         
     if checkout.validate_on_submit():
