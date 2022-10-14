@@ -6,6 +6,7 @@ from functools import wraps
 from turbo_flask import Turbo
 import uuid
 
+# app = Flask(__name__, static_url_path='', static_folder="./static")
 app = Flask(__name__)
 turbo = Turbo(app)
 app.secret_key = 'Caffeine 101'
