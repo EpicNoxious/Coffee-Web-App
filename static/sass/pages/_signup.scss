@@ -1,7 +1,7 @@
 .flip-card-container {
   margin: 4.8rem auto;
   padding: 0 6.4rem;
-
+  min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 8rem repeat(6, 6.6rem);

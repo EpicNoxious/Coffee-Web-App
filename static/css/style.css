@@ -1096,6 +1096,7 @@ body {
 .flip-card-container {
   margin: 4.8rem auto;
   padding: 0 6.4rem;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 8rem repeat(6, 6.6rem);
@@ -1674,7 +1675,7 @@ body {
   --off-black-2: #0a0a0a;
   --off-black-3: #101010;
   --off-black-4: #191919;
-  --brown-light: #b99158;
+  --brown-light: #cf9441;
   --grey-1: #555;
   --grey-2: #999;
   --grey-3: #bbb; }
@@ -1764,7 +1765,8 @@ body {
   @media only screen and (max-width: 46.87em) {
     .section-button {
       letter-spacing: 0.5px;
-      padding: 0.6rem 1.2rem; } }
+      padding: 0.6rem 1.2rem;
+      margin-top: 1.6rem; } }
   .section-button:hover {
     color: var(--off-white);
     background-color: var(--off-black-3); }
@@ -2087,7 +2089,7 @@ body {
     border: 0;
     outline: 0;
     padding: 4.8rem;
-    background: linear-gradient(320deg, #b99158 15%, #947446);
+    background: linear-gradient(320deg, #cf9441 15%, #91682e);
     backdrop-filter: blur(20px);
     transition: transform 0.4s cubic-bezier(0.65, -0.1, 0.34, 1.08); }
     @media only screen and (max-width: 74em) {
@@ -2140,17 +2142,20 @@ body {
   transform: scale(1, 0); }
 
 .nav {
+  height: 90vh;
   display: flex;
-  height: 80vh;
   align-items: center;
   justify-content: center; }
   .nav__list {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-evenly;
     color: white;
     list-style: none; }
+    @media only screen and (max-width: 74em) {
+      .nav__list {
+        gap: 2rem; } }
     .nav__list--text {
       color: white;
       font-size: 1.4rem;
@@ -2321,7 +2326,7 @@ textarea {
   align-items: center;
   justify-items: center;
   padding: 3.2rem;
-  height: 100vh; }
+  min-height: 100vh; }
   @media only screen and (max-width: 62.5em) {
     .hero {
       grid-template-columns: 1fr;
@@ -2428,6 +2433,7 @@ textarea {
   min-height: 80rem;
   display: grid;
   padding: 3.2rem;
+  min-height: 100vh;
   grid-template-columns: 1fr 1fr;
   color: var(--off-white); }
   @media only screen and (max-width: 62.5em) {
@@ -2549,6 +2555,7 @@ textarea {
   display: grid;
   padding: 8rem 3.2rem 3.2rem 3.2rem;
   grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
   position: relative; }
   @media only screen and (max-width: 46.87em) {
     .section-how {
@@ -2608,7 +2615,7 @@ textarea {
           max-width: 90%; } }
       @media only screen and (max-width: 46.87em) {
         .section-how__image--cold_brew_bottle {
-          max-width: 50%; } }
+          max-width: 70%; } }
   .section-how__content {
     padding: 0 4.8rem; }
     @media only screen and (max-width: 74em) {
@@ -2616,14 +2623,18 @@ textarea {
         padding-top: 1.2rem; } }
     @media only screen and (max-width: 46.87em) {
       .section-how__content {
+        padding: 0 1.6rem;
         padding-top: 4.8rem; } }
     .section-how__content--heading {
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       font-size: 2.4rem;
       letter-spacing: -0.2px;
       font-weight: 500;
       font-family: "Quicksand";
       color: var(--off-black-3); }
+      @media only screen and (max-width: 46.87em) {
+        .section-how__content--heading {
+          margin-bottom: 1.4rem; } }
     .section-how__content--text {
       color: var(--off-black-3);
       hyphens: auto;
@@ -2674,7 +2685,8 @@ textarea {
   color: var(--off-white);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 8rem 3.2rem 3.2rem 3.2rem; }
+  padding: 8rem 3.2rem 3.2rem 3.2rem;
+  min-height: 100vh; }
   @media only screen and (max-width: 62.5em) {
     .section-testimonials {
       grid-template-columns: 1fr; } }
@@ -2913,10 +2925,13 @@ textarea {
   border: 0;
   list-style: none;
   font-weight: 800;
-  display: inline-block;
-  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
   border-radius: 9px;
-  padding: 0.8rem 1.6rem; }
+  padding: 1.2rem 2.8rem;
+  font-size: 2.4rem; }
 
 .alert {
   margin: 0.8rem auto;
@@ -2929,16 +2944,16 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 4rem; }
+  height: 5rem; }
 
 #hideMe {
-  -moz-animation: cssAnimation 0s ease-in 3s forwards;
+  -moz-animation: cssAnimation 0s ease-in 5s forwards;
   /* Firefox */
-  -webkit-animation: cssAnimation 0s ease-in 3s forwards;
+  -webkit-animation: cssAnimation 0s ease-in 5s forwards;
   /* Safari and Chrome */
-  -o-animation: cssAnimation 0s ease-in 3s forwards;
+  -o-animation: cssAnimation 0s ease-in 5s forwards;
   /* Opera */
-  animation: cssAnimation 0s ease-in 3s forwards;
+  animation: cssAnimation 0s ease-in 5s forwards;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards; }
 

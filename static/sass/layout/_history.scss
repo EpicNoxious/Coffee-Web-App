@@ -9,6 +9,7 @@
   min-height: 80rem;
   display: grid;
   padding: 3.2rem;
+  min-height: 100vh;
   grid-template-columns: 1fr 1fr;
   color: var(--off-white);
   @include respond(sm-tab) {

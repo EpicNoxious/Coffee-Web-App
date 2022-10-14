@@ -50,6 +50,7 @@
   @include respond(big-mob) {
     letter-spacing: 0.5px;
     padding: 0.6rem 1.2rem;
+    margin-top: 1.6rem;
   }
 
   &:hover {
