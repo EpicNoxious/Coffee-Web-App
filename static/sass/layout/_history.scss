@@ -8,7 +8,6 @@
 .section__history {
   min-height: 80rem;
   display: grid;
-  padding: 3.2rem;
   min-height: 100vh;
   grid-template-columns: 1fr 1fr;
   color: var(--off-white);
@@ -19,7 +18,7 @@
   &-main {
     grid-column: 1 / -1;
     margin: 0 auto;
-    padding: 8rem 3.2rem 4.8rem 3.2rem;
+    padding: 9.6rem 3.2rem 4.8rem 3.2rem;
 
     &__heading {
       font-size: 6.4rem;
@@ -110,7 +109,13 @@
       justify-content: center;
 
       @include respond(sm-tab) {
-        max-width: 50rem;
+        max-width: 55rem;
+      }
+      @include respond(big-mob) {
+        max-width: 45rem;
+      }
+      @include respond(sm-mob) {
+        max-width: 35rem;
       }
 
       &--text {
@@ -119,7 +124,11 @@
         color: var(--off-black-3);
         letter-spacing: 0.5px;
         position: relative;
-        @include respond(sm-/mob) {
+        @include respond(sm-tab) {
+          font-size: 1.8rem;
+        }
+        @include respond(sm-mob) {
+          letter-spacing: 0.3px;
           font-size: 1.4rem;
         }
       }

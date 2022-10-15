@@ -70,7 +70,8 @@
         max-width: 90%;
       }
       @include respond(big-mob) {
-        max-width: 70%;
+        width: 100%;
+        height: auto;
       }
     }
   }

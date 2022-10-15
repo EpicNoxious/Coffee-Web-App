@@ -1,5 +1,5 @@
 .section-products {
-  padding: 8rem 3.2rem 3.2rem 3.2rem;
+  padding: 9.6rem 3.2rem 9.6rem 3.2rem;
   height: auto;
   &-grid {
     display: grid;
@@ -8,7 +8,7 @@
     row-gap: 4.8rem;
 
     @include respond(big-tab) {
-      column-gap: 0;
+      column-gap: 6.4rem;
       row-gap: 4.8rem;
     }
 
@@ -24,7 +24,7 @@
     @include respond(big-tab) {
       grid-template-columns: repeat(2, 1fr);
     }
-    @include respond(sm-tab) {
+    @include respond(sm-mob) {
       grid-template-columns: repeat(1, 1fr);
     }
   }
@@ -58,27 +58,33 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  height: 35rem;
-  max-width: 25rem;
+  height: 40rem;
+  max-width: 30rem;
   border-radius: 3.5rem;
   overflow: hidden;
   position: relative;
 
   @include respond(big-desktop) {
     max-width: 35rem;
-    height: 45rem;
+    max-height: 45rem;
+  }
+  @include respond(sm-desktop) {
+    max-width: 25rem;
+    max-height: 36rem;
   }
 
   @include respond(big-tab) {
-    height: 35rem;
+    max-height: 45rem;
+    max-width: 30rem;
   }
 
-  @include respond(md-tab) {
-    height: 30rem;
+  @include respond(big-mob) {
+    max-height: 36rem;
+    max-width: 25rem;
   }
-  @include respond(sm-tab) {
-    height: 45rem;
-    max-width: 35rem;
+  @include respond(big-mob) {
+    max-height: 40rem;
+    max-width: 30rem;
   }
 
   &--1 {

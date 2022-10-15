@@ -27,7 +27,7 @@ $black: #000;
 html {
   font-size: 62.5%; // 10/16
   overflow-x: hidden;
-  // scroll-behavior: smooth;
+  scroll-behavior: smooth;
 
   @include respond(big-desktop) {
     font-size: 0.6vw;

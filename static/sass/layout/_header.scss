@@ -13,6 +13,9 @@ body {
   width: 92vw;
   z-index: 10000;
   margin: 2.4rem auto 0 auto;
+  @include respond(sm-mob) {
+    margin: 2rem auto 0 auto;
+  }
   padding: 0.6rem 2.8rem;
   flex: 0 0 100%;
 
@@ -25,6 +28,9 @@ body {
   &__logo {
     display: flex;
     font-size: 3.2rem;
+    @include respond(sm-mob) {
+      font-size: 2.8rem;
+    }
     font-weight: 700;
     letter-spacing: 0.5px;
     text-decoration: none;
@@ -43,6 +49,9 @@ body {
       &::after {
         width: 3rem;
         height: 3px;
+        @include respond(sm-mob) {
+          height: 2px;
+        }
         background-color: white;
         display: block;
       }

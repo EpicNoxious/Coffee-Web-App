@@ -2,7 +2,7 @@
   color: var(--off-white);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 8rem 3.2rem 3.2rem 3.2rem;
+  padding: 9.6rem 3.2rem 9.6rem 3.2rem;
   min-height: 100vh;
   @include respond(sm-tab) {
     grid-template-columns: 1fr;

@@ -12,7 +12,7 @@
   &-box {
     margin: 0 auto;
     text-align: center;
-    margin: 16rem 4.8rem 16rem 4.8rem;
+    margin: 9.6rem 4.8rem 9.6rem 4.8rem;
 
     &--heading {
       font-size: 4.8rem;
@@ -82,12 +82,12 @@
     border-bottom-right-radius: 5px;
     background-color: var(--off-white);
     border: none;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 600;
-    letter-spacing: 1px;
-    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+    font-size: 1.3rem;
     font-family: "Quicksand";
-    width: 25%;
+    width: 35%;
     transition: all 0.2s ease-in-out;
   }
 }
