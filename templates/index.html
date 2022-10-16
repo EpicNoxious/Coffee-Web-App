@@ -691,7 +691,7 @@
             </p>
 
             <div class="cta-box__form">
-              <form class="form" name="sign-up">
+              <form class="form" method="POST">
                 <input
                   class="form--input"
                   id="email"
@@ -700,7 +700,9 @@
                   name="email"
                   required
                 />
-                <button class="form__button">Get free drink</button>
+                <button type="submit" name="send_email" class="form__button">
+                  Get free drink
+                </button>
               </form>
             </div>
           </div>

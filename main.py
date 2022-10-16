@@ -5,6 +5,9 @@ from forms import SignUp, SignIn, Menu, Buy, CheckOut
 from functools import wraps
 from turbo_flask import Turbo
 import uuid
+import smtplib
+
+
 
 # app = Flask(__name__, static_url_path='', static_folder="./static")
 app = Flask(__name__)
@@ -725,6 +728,27 @@ def login_required(f):
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
+    EMAIL = 'jappreet.016@gmail.com'
+    PASSWORD = 'geymlajpkvjnnhuk'
+    if request.method == 'POST' and 'send_email' in request.form:
+        def send_email(email):
+            with smtplib.SMTP("smtp.gmail.com", 587) as connection:
+                connection.ehlo()
+                connection.starttls()
+                connection.ehlo()
+                connection.login(EMAIL, PASSWORD)
+                subject = 'Welcome to Brew Nation'
+                body = f'Hi, Welcome to Brew Nation we are excited to have you on board and we would love to say thank you on behalf of our whole organisation for chosing us. We undersatnd that coffee is important in your life and thats why you are here, right? Brew Nation is an old and reputed coffee brand which started its ever long journey in 1984 and here you will experience a complete different experience to enjoy your coffee cup. To get for first free coffee cup you need to follow the following steps: \
+                    \n\nSTEP-1: Capture a picture or a short video of yourself showing how much you love coffee! \
+                    \n\nSTEP-2: Post it with #brewnation \
+                    \n\nSTEP-3: Show it to our employee to avail your first free cup' 
+
+                msg = f"Subject: {subject}\n\n{body}"
+                connection.sendmail(EMAIL, email, msg)
+                flash("Email has been sent successfully")
+
+        email = request.form["email"]
+        send_email(email)
     return render_template('index.html')
 
 
@@ -784,7 +808,6 @@ def sign_up_in():
 def menu():
     buy = Buy()
     menu = Menu()
-    print(turbo.can_stream())
 
     if turbo.can_stream():
         if menu.add_es and request.form['btn'] == '+ Espresso':  # espresso
